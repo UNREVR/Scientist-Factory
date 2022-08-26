@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PotionScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
@@ -28,8 +29,10 @@ public class PotionScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         if (sotScript.pointerEnter == true)
         {
             sotScript.AddPotion(potionType, potionNum);
+            var rect = this.GetComponent<RectTransform>();
+            this.transform.position = DefaultPos;
+            PouringScript.Pour(this.GetComponent<Image>().sprite);
         }
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        this.transform.position = DefaultPos;
+        else this.transform.position = DefaultPos;
     }
 }
