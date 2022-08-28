@@ -19,13 +19,13 @@ public class MakePotion : MonoBehaviour
         var regionNum = sotScript.regionNum;
         var marryNum = sotScript.marryNum;
 
-        if (subjectNum == 0 || eraNum == 0 || sexNum == 0 || prizeNum == 0 || regionNum == 0 || marryNum == 0)
+        if (subjectNum == 0 || eraNum == 0 || sexNum == 0 || prizeNum == 0 || regionNum == 0)
         {
             messageBubble.SetActive(true);
         }
         else
         {
-            Debug.Log("wa");
+            Debug.Log(marryNum);
             var peopleInfoFile = Resources.Load<TextAsset>("data");
             var sr = new StringReader(peopleInfoFile.text);
             while (true)
