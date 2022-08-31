@@ -61,19 +61,20 @@ public class SotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 regionSlot.SetActive(true);
                 break;
             case "marry":
-                if (marryNum == 1)
+                switch (marryNum)
                 {
-                    marryNum++;
-                    marrySlot.GetComponent<Image>().sprite =
-                        GameObject.Find("potion_marry").GetComponent<Image>().sprite;
-                    marrySlot.SetActive(true);
-                }
-                else if (marryNum == 2)
-                {
-                    marryNum++;
-                    marrySlot2.GetComponent<Image>().sprite =
-                        GameObject.Find("potion_marry").GetComponent<Image>().sprite;
-                    marrySlot2.SetActive(true);
+                    case 1:
+                        marryNum++;
+                        marrySlot.GetComponent<Image>().sprite =
+                            GameObject.Find("potion_marry").GetComponent<Image>().sprite;
+                        marrySlot.SetActive(true);
+                        break;
+                    case 2:
+                        marryNum++;
+                        marrySlot2.GetComponent<Image>().sprite =
+                            GameObject.Find("potion_marry").GetComponent<Image>().sprite;
+                        marrySlot2.SetActive(true);
+                        break;
                 }
                 break;
         }
@@ -81,7 +82,8 @@ public class SotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void ResetPotion()
     {
-        subjectNum = eraNum = sexNum = marryNum = prizeNum = regionNum = 0;
+        subjectNum = eraNum = sexNum = prizeNum = regionNum = 0;
+        marryNum = 1;
         subjectSlot.SetActive(false);
         eraSlot.SetActive(false);
         sexSlot.SetActive(false);

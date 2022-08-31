@@ -12,6 +12,12 @@ public class ShowResult : MonoBehaviour
     {
         var resultName = PlayerPrefs.GetString("ResultPeople");
         var description = PlayerPrefs.GetString("ResultDescription");
+
+        if (resultName == "nan")
+        {
+            resultName = "";
+            description = "흐음... 포션 재료가 무언가 잘못 조합된거 같아요. 레시피를 바꿔서 다시 도전해봅시다!";
+        }
         
         peopleName.GetComponent<TextMeshProUGUI>().text = resultName;
         peopleDescription.GetComponent<TextMeshProUGUI>().text = description.Replace("<br>", "\n");
